@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    async function findans(name, city) {
+    var maxi_debit=0,maxi_credit=0;
+   for (var j=1;j<=30;j++)
+   {
+    var url='https://jsonmock.hackerrank.com/api/transactions/?page='+j.toString();
+    const response = await fetch(url);
+   const movies = await response.json();
+   const arr=movies["data"];
+  
+   for (var i=0;i<arr.length;i++)
+   {
+       var user=arr[i];
+       user['amount']=parseFloat(user['amount'].slice(1).replace(",", ""));
+       if (user["userName"]===name && user["location"]["city"]===city)
+       {
+         if (user['txnType']==='credit')
+         {
+           maxi_credit=Math.max(maxi_credit,user['amount'])
+         }
+         if (user['txnType']==='debit')
+         {
+           maxi_debit=Math.max(maxi_debit,user['amount'])
+         }
+       }
+   }
+
+   }
+   var ans = [];
+   
+   maxi_credit=maxi_credit.toLocaleString('en-US', {
+   style: 'currency',
+   currency: 'USD',
+ });
+   maxi_debit=maxi_debit.toLocaleString('en-US', {
+   style: 'currency',
+   currency: 'USD',
+ });
+ console.log(maxi_credit)
+ console.log(maxi_debit)
+ //return ans;
+ }
+ 
+ findans("Bob Martin","Bourg")
+
+</script>
+</html>

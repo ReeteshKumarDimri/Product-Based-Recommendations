@@ -1,0 +1,30 @@
+.cart-container {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.cart-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.cart-table {
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the table */
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-bottom: 20px;
+}
+.cart-table th {
+    background-color: #f6f6f6;
+}
+.cart-table th,
+.cart-table td {
+    padding: 5px; /* Decrease the padding as needed */
+    vertical-align: middle;
+    text-align: center;
+}
+
+.continue-shopping-btn {
+    margin-top: 20px;
+}
