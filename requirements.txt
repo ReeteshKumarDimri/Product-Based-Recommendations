@@ -1,5 +1,5 @@
 Flask
 Gunicorn
-pandas
+pandas==2.0.3
 numpy
 pickle4
